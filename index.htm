@@ -1,37 +1,65 @@
-<!DOCTYPE html><html lang="en" class="night">
+<!DOCTYPE html><html lang="en">
 
 <head>
-    <title>Browser not supported</title>
+    <title>ACC_REM_SUSPICIOUS</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <style>body{background:#181818;color:#fff;font-family:'Roboto', sans-serif;font-size:16.2px;line-height:24px;font-weight:400;height:100vh;margin:0;display:flex}main{background:#212121;margin:auto;width:760px;text-align:center;border-radius:10px;transform:translateY(3rem);opacity:0}main[loaded]{transition:0.3s cubic-bezier(.4, 0, .2, 1);transform:translateY(0);opacity:1}#info-en,#info-ru{padding:2rem}h4{font-size:2.06rem;line-height:110%;margin:22px 0 14px;font-weight:500}a{color:#8774e1;text-decoration:none}strong{font-weight:500}p{width:382px;line-height:26px;text-align:left;margin:2rem auto 1rem}.actions{width:382px;margin:auto}button{width:360px;height:54px;appearance:none;background:transparent;color:#8774e1;border:none;border-radius:10px;transition:0.2s;cursor:pointer;font-family:'Roboto', sans-serif;font-size:16px;margin-top:0.5rem}button:hover{background:#8774e114}button:active{background:#8774e128}a button{background:#8774e1;color:#fff;font-weight:500}a button:hover{background:#6a52da}a button:active{background:#7660dd}</style>
+    <style>body{background:#181818;color:#fff;font-family:'Roboto', sans-serif;font-size:16.2px;line-height:24px;font-weight:400;height:100vh;margin:0;display:flex}main{background:#212121;margin:auto;width:760px;text-align:center;border-radius:10px;transform:translateY(3rem);opacity:0;pointer-events:none}main[loaded]{transition:0.3s cubic-bezier(.4, 0, .2, 1);transform:translateY(0);opacity:1;pointer-events:all}#info-en,#info-ru,#done-en,#done-ru{padding:2rem}h4{font-size:2.06rem;line-height:110%;margin:22px 0 14px;font-weight:500}a{color:#8774e1;text-decoration:none}strong{font-weight:500}p{width:fit-content;line-height:26px;text-align:left;margin:2rem auto 1rem}.actions{width:382px;margin:auto}button{width:360px;height:54px;appearance:none;background:transparent;color:#8774e1;border:none;border-radius:10px;transition:0.2s;cursor:pointer;font-family:'Roboto', sans-serif;font-size:16px;margin-top:0.5rem}button:hover{background:#8774e114}button:active{background:#8774e128}.proposed{background:#8774e1;color:#fff;font-weight:500}.proposed:hover{background:#6a52da}.proposed:active{background:#7660dd}</style>
 </head>
 
 <body>
     <main>
-        <div id="info-en">
+        <div id="info-en" style="display: none;">
             <div class="description">
-                <h4>Browser not supported</h4>
-                <p>Support for this device ended on <strong>July 13, 2022</strong>. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+                <h4>Sorry</h4>
+                <p>This phone number has been frozen for <b>suspicious login attempts</b>.<br>To unfreeze the number and re-create your account, click below. Bancode:<pre>ACC_REM_SUSPICIOUS</pre></p>
             </div>
             <div class="actions">
-                <a href="https://browsehappy.com/"><button>MORE INFORMATION</button></a>
+                <button class="proposed" onclick="document.querySelector('#info-en').style.display = 'none'; document.querySelector('main').removeAttribute('loaded'); document.querySelector('#done-en').style.display = 'block'; setTimeout( function() { document.querySelector('main').setAttribute('loaded','') }, 1589 ); document.cookie = 'unblocked = unblocked'; setTimeout( function() { document.querySelector('main').innerHTML = ''; }, 6589 );">CONTINUE</button>
                 <button onclick="document.querySelector('#info-ru').style.display = 'block'; document.querySelector('#info-en').style.display = 'none';">ПРОДОЛЖИТЬ НА РУССКОМ</button>
             </div>
         </div>
 
         <div id="info-ru" style="display: none;">
             <div class="description">
-                <h4>Браузер не поддерживается</h4>
-                <p>Поддержка этого устройства прекращена <strong>13 июля 2022 г</strong>. Пожалуйста, <a href="https://browsehappy.com/?locale=ru">обновите браузер</a>, чтобы повысить удобство работы и безопасность.</p>
+                <h4>Сожалеем</h4>
+                <p>Этот номер телефона был заморожен за <b>подозрительные попытки входа</b>.<br>Чтобы разморозить номер и пересоздать аккаунт, нажмите ниже. Код блокировки:<pre>ACC_REM_SUSPICIOUS</pre></p>
             </div>
             <div class="actions">
-                <a href="https://browsehappy.com/?locale=ru"><button>ПОДРОБНЕЕ</button></a>
+                <button class="proposed" onclick="document.querySelector('#info-ru').style.display = 'none'; document.querySelector('main').removeAttribute('loaded'); document.querySelector('#done-ru').style.display = 'block'; setTimeout( function() { document.querySelector('main').setAttribute('loaded','') }, 1589 ); document.cookie = 'unblocked = unblocked'; setTimeout( function() { document.querySelector('main').innerHTML = ''; }, 6589 );">ПРОДОЛЖИТЬ</button>
                 <button onclick="document.querySelector('#info-en').style.display = 'block'; document.querySelector('#info-ru').style.display = 'none';">CONTINUE IN ENGLISH</button>
             </div>
         </div>
+
+        <div id="done-en" style="display: none;">
+            <div class="description">
+                <h4>Done!</h4>
+                <p>The phone number has been successfully unblocked and now can be used for account creation. <i>This message will be automatically closed in a few seconds.</i></p>
+            </div>
+        </div>
+
+        <div id="done-ru" style="display: none;">
+            <div class="description">
+                <h4>Готово!</h4>
+                <p>Номер успешно разблокирован и может быть использован для последующего создания аккаунта. <i>Эту сообщение будет автоматически закрыто через несколько секунд.</i></p>
+            </div>
+        </div>
+
+        <div id="stop-en" style="display: none;">
+            <div class="description">
+                <h4>Something went wrong</h4>
+                <p>The specified phone number is not blocked or does not exist. Error code:<pre>ERR_NOT_FOUND</pre></p>
+            </div>
+        </div>
+
+        <div id="stop-ru" style="display: none;">
+            <div class="description">
+                <h4>Что-то пошло не так</h4>
+                <p>Указанный номер телефона не заблокирован либо не существует. Код ошибки:<pre>ERR_NOT_FOUND</pre></p>
+            </div>
+        </div>
     </main>
-    <script>setTimeout( function() { document.querySelector('main').setAttribute('loaded','') }, 2367 );</script>
+    <script>if (decodeURIComponent(document.cookie) == "") { document.querySelector('#info-en').style.display = 'block'; } else { document.querySelector('#stop-en').style.display = 'block'; }; setTimeout( function() { document.querySelector('main').setAttribute('loaded','') }, 2367 );</script>
 </body>
